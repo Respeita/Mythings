@@ -5,11 +5,8 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="VyReader.css">
 	<title>VyReader</title>
-</head>
-<body>
-	<!-- Programation -->
+		<!-- Programation -->
 	<script type="text/javascript">
-
 		function changeblack(){
 			$("#text").css("background-color", "black");
 			$("#text").css("color", "white");
@@ -17,7 +14,6 @@
 			$("#inWhite").show();
 			$("#navigator").css("background-color", "white");
 			$("body").css("background-color", "black");
-			$("#inWhite").css("visibility", "visible")
 		}
 		function changewhite(){
 			$("#text").css("background-color", "white");
@@ -28,19 +24,24 @@
 			$("body").css("background-color", "white")
 		}
 		function changetext(){
-			vtext = document.getElementById("areatext").value.replace(/\n/g, '<br>');
+			vtext = document.getElementById("areatext").value.replace(/\n/g, '<br></div><div>');
 			//alert(vtext);
-			$("#ph1").html(vtext);
+			$("#text").html(vtext);
 		}
-
+		function instart(){
+			$("#inWhite").hide();
+		}
 		/* CHANGES */
 		function changefont(name){
-			$("#ph1").css("font-family", name);
+			$("#text").css("font-family", name);
 		}
 		function changefontSize(siz){
-			$("#ph1").css("font-size", siz);
+			$("#text").css("font-size", siz);
+			editor.document.designMode = "On";
 		}
 	</script>
+</head>
+<body onLoad="instart()">
 
 	<!-- Hearder -->
 <svg widht="1350" height="90">
@@ -168,9 +169,6 @@
 	<br>
 </div>
 <!-- Body of Site-->
-<div id="text">
-	<a id= "ph1"> 
-	</a>
-</div>
+<div id="text" contenteditable="true">
 </body>
 </html>
